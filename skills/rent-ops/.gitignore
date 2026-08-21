@@ -1,0 +1,37 @@
+# User data (never commit)
+data/*.md
+data/*.tsv
+data/*.jsonl
+data/*.json
+!data/.gitkeep
+
+# Keep system-layer HTML templates + bundled sample data
+!data/map-view.html
+!data/listings-view.html
+!data/sample-*.json
+
+# Reports (never commit)
+reports/*.md
+!reports/.gitkeep
+
+# User config (created from templates)
+config/profile.yml
+config/amap.yml
+modes/_profile.md
+platforms.yml
+
+# MCP server config (may contain API keys)
+.mcp.json
+!.mcp.json.example
+
+# Python venv (created by setup.sh)
+.venv/
+
+# Session / cache
+data/douban_session.json
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+.gstack/

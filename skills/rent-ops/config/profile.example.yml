@@ -1,0 +1,90 @@
+# rent-ops 用户配置
+# 复制到 config/profile.yml 并填入你的信息
+
+# ── 基本信息 ──────────────────────────────────────────────────────────────
+#
+# city: 必填。可以填中文名（深圳）或拼音（shenzhen）。
+# 内置支持的城市见 cities/*.yml，目前包含：
+#   shenzhen / beijing / shanghai / guangzhou / hangzhou / chengdu
+# 新增城市：在 cities/ 下按 cities/README.md 建一份 yml 即可。
+#
+city: 深圳
+
+# ── 锚点（多个通勤目的地）──────────────────────────────────────────────────
+#
+# anchors: 生活中常去的地方（公司、学校、父母家、女朋友公司...）。
+# 找房时会按 importance 加权计算综合通勤分，地图上每个锚点一个标记。
+#
+# 字段：
+#   name        显示名
+#   address     地址文本（地铁站名、小区名、详细地址都可以）
+#   mode        通勤方式：transit / driving / walking / bicycling
+#   max_minutes 期望的最长通勤时间
+#   importance  1-5，这个锚点对你有多重要（加权用）
+#   icon        可选，自定义图标；不填则按 name 关键词推断
+#                （公司→🏢 / 学校→🏫 / 家→🏠 / 医院→🏥 / 健身→💪 / 默认→📍）
+#
+anchors:
+  - name: 我的公司
+    address: "南山区-深大站"
+    mode: transit
+    max_minutes: 30
+    importance: 5
+
+  # 示例：情侣两个通勤点
+  # - name: 女朋友公司
+  #   address: "福田-车公庙"
+  #   mode: transit
+  #   max_minutes: 40
+  #   importance: 4
+
+  # 示例：有娃家庭的学校
+  # - name: 孩子幼儿园
+  #   address: "南山区-荣上居"
+  #   mode: walking
+  #   max_minutes: 15
+  #   importance: 5
+
+  # 示例：低频但必要的锚点
+  # - name: 父母家
+  #   address: "宝安区-西乡"
+  #   mode: driving
+  #   max_minutes: 60
+  #   importance: 2
+
+# ── 向后兼容：旧的 work_location 字段 ──────────────────────────────────────
+# 只有单个锚点也可以继续用旧字段（会自动迁移成 anchors 数组）：
+#
+# work_location: "南山区-深大站"
+
+# ── 筛选条件 ──────────────────────────────────────────────────────────────
+budget:
+  min: 2000                         # 月租下限（元）
+  max: 5000                         # 月租上限（元）
+type: 整租                           # 整租 / 合租
+rooms:                               # 接受的户型
+  - 1室1厅
+  - 2室1厅
+
+# ── 偏好（影响评分但不硬性过滤）──────────────────────────────────────────
+preferences:
+  floor_min: 5                      # 偏好楼层下限
+  orientation: 南向                  # 偏好朝向
+  decoration:                       # 装修类型
+    - 精装
+    - 简装
+  must_have:                        # 必须有的设施
+    - 独卫
+    - 阳台
+
+# ── 红线（不满足直接过滤掉）─────────────────────────────────────────────
+dealbreakers:
+  - 隔断
+  - 地下室
+  - 无独卫
+  - 押金超过两个月
+
+# ── 通勤（全局默认，anchors 里的值优先）──────────────────────────────────
+commute:
+  max_minutes: 45                   # 未在 anchors 里指定时的默认值
+  transport: 地铁                    # 兼容字段；anchors 的 mode 才是生效值
