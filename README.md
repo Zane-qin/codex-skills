@@ -1,6 +1,6 @@
 # Codex Skills
 
-秦正帅的可公开 Codex Skill 源码仓库。
+Zane 的可公开 Codex Skill 源码仓库。
 
 ## Skills
 
