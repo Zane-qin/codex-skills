@@ -1,0 +1,7 @@
+interface:
+  display_name: "BISTU 简洁文献汇报"
+  short_description: "沿用学校校徽和白底简洁排版，用论文原图与简短文字制作组会汇报"
+  icon_large: "./assets/preview.png"
+  default_prompt: "使用 $artifact-template-bistu，按我的学校简洁风格，把这篇论文制作成文献汇报 PPT。"
+policy:
+  allow_implicit_invocation: true

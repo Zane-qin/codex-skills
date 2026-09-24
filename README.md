@@ -4,6 +4,8 @@ Zane 的可公开 Codex Skill 源码仓库。
 
 ## Skills
 
+- [BISTU 简洁文献汇报](skills/artifact-template-bistu/)：白底、学校校徽、简短文字和论文原图；内置完整 PPT 模板。使用时输入 `用 $artifact-template-bistu 制作这篇论文的汇报 PPT`。
+
 - [`rent-ops`](skills/rent-ops/)：AI 租房助手，支持房源扫描、评估、去重、地图展示、风险检查和看房准备。
 - [PRD Skill 套件](PRD_SKILLS.md)：8 个覆盖通用 PRD、团队规范、专项章节和飞书工作流的 Skill。
 
